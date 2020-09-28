@@ -53,6 +53,18 @@ public class UserRegistration {
 			System.out.println("Invalid Phone Number");
 
 	}
+	public static void validatePassword() {
+		String password = sc.next();
+		
+		String pass_pattern = "[^\\s]{8,}";
+		Pattern pattern = Pattern.compile(pass_pattern);
+		Matcher matcher = pattern.matcher(password);
+		if(matcher.matches())
+			System.out.println("Valid Password");
+		else
+			System.out.println("Invalid Password");
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration. ");
 		System.out.println("Enter first name :");
@@ -63,6 +75,8 @@ public class UserRegistration {
 		validateEmail();
 		System.out.println("Enter phone number with country code :");
 		validatePno();
+		System.out.println("Enter password :");
+		validatePassword();
 		
 		sc.close();
 	}
