@@ -56,7 +56,7 @@ public class UserRegistration {
 	public static void validatePassword() {
 		String password = sc.next();
 		
-		String pass_pattern = "[^\\s]{8,}";
+		String pass_pattern = "(?=.*[0-9])(?=.*[A-Z])[^\\s]{8,}";
 		Pattern pattern = Pattern.compile(pass_pattern);
 		Matcher matcher = pattern.matcher(password);
 		if(matcher.matches())
