@@ -33,22 +33,36 @@ public class UserRegistration {
 		String email = sc.next();
 		
 		String pattern_email = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-		Pattern pattern2 = Pattern.compile(pattern_email);
-		Matcher matches2 = pattern2.matcher(email);
-		if(matches2.matches())
+		Pattern pattern = Pattern.compile(pattern_email);
+		Matcher matches = pattern.matcher(email);
+		if(matches.matches())
 			System.out.println("Valid Email Address");
 		else
 			System.out.println("Invalid Email Address");
 	}
 	
+	public static void validatePno() {
+		String phn = sc.next();
+		
+		String pattern_phn = "[0-9]{2}\\s[1-9]{1}[0-9]{10}$";
+		Pattern pattern = Pattern.compile(pattern_phn);
+		Matcher matcher = pattern.matcher(phn);
+		if(matcher.matches())
+			System.out.println("Valid Phone Number");
+		else
+			System.out.println("Invalid Phone Number");
+
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration. ");
 		System.out.println("Enter first name :");
 		validatefName();
 		System.out.println("Enter last name :");
 		validatelName();
-		System.out.println("Enter E-mail address ");
+		System.out.println("Enter E-mail address :");
 		validateEmail();
+		System.out.println("Enter phone number with country code :");
+		validatePno();
 		
 		sc.close();
 	}
