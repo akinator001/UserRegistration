@@ -29,12 +29,26 @@ public class UserRegistration {
 			System.out.println("Invalid Last Name");
 
 	}
+	public static void validateEmail() {
+		String email = sc.next();
+		
+		String pattern_email = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+		Pattern pattern2 = Pattern.compile(pattern_email);
+		Matcher matches2 = pattern2.matcher(email);
+		if(matches2.matches())
+			System.out.println("Valid Email Address");
+		else
+			System.out.println("Invalid Email Address");
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration. ");
 		System.out.println("Enter first name :");
 		validatefName();
 		System.out.println("Enter last name :");
 		validatelName();
+		System.out.println("Enter E-mail address ");
+		validateEmail();
 		
 		sc.close();
 	}
