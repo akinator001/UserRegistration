@@ -16,15 +16,27 @@ public class UserRegistration {
 		else
 			System.out.println("Invalid First Name");
 		
-		sc.close();
 	}
 	
+	public static void validatelName(){
+		String lName = sc.next();
+		
+		Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}");
+		Matcher matcher = pattern.matcher(lName);
+		if(matcher.matches())
+			System.out.println("Valid Last Name");
+		else
+			System.out.println("Invalid Last Name");
+
+	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration. ");
 		System.out.println("Enter first name :");
 		validatefName();
+		System.out.println("Enter last name :");
+		validatelName();
 		
-		
+		sc.close();
 	}
 
 }
